@@ -3,13 +3,18 @@ services:
   prometheus:
     image: prom/prometheus:v3.7.3
     volumes:
-      - "./prometheus/config.yaml:/etc/prometheus/config.yaml"
+      - "./prometheus:/etc/prometheus"
       - "prometheus-data:/prometheus"
     command:
       - "--config.file"
       - "/etc/prometheus/config.yaml"
     ports:
-      - 9090:9090
+      - "9090:9090"
+
+  alert-manager:
+    image: prom/alertmanager:v0.29.0
+    ports:
+      - "9093:9093"
 
   node-exporter:
     image: prom/node-exporter:v1.10.2
@@ -21,6 +26,7 @@ services:
       - "/:/host:ro"
     ports:
       - "9100:9100"
+
 
 volumes:
   prometheus-data:

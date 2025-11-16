@@ -1,0 +1,12 @@
+groups:
+  - name: example-alerts
+
+    rules:
+      - alert: HighCpuUsage
+        expr: avg(rate(process_cpu_seconds_total[1m])) > 0.001
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "This is a test description!"
