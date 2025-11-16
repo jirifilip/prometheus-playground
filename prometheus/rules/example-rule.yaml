@@ -2,11 +2,11 @@ groups:
   - name: example-alerts
 
     rules:
-      - alert: HighCpuUsage
-        expr: avg(rate(process_cpu_seconds_total[1m])) > 0.001
+      - alert: Node is down
+        expr: up{job="node"} == 0
         for: 10s
         labels:
           severity: warning
         annotations:
-          summary: "High CPU usage detected"
+          summary: "Node is DOWN!"
           description: "This is a test description!"

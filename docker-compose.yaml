@@ -17,6 +17,7 @@ services:
       - "9093:9093"
     volumes:
       - "./alertmanager:/etc/alertmanager"
+      - "alertmanager-data:/alertmanager"
       - "/run/secrets:/run/secrets"
     command:
       - "--config.file"
@@ -38,6 +39,7 @@ services:
 
 volumes:
   prometheus-data:
+  alertmanager-data:
 
 
 secrets:
