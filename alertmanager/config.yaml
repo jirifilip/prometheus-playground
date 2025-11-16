@@ -4,6 +4,5 @@ route:
 receivers:
   - name: pagerduty
     pagerduty_configs:
-      - service_key_file: "/run/secrets/pagerduty_integration_key"
-        url: "https://events.eu.pagerduty.com/generic/2010-04-15/create_event.json"
+      - routing_key_file: "/run/secrets/pagerduty_integration_key"
         send_resolved: true

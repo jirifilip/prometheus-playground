@@ -22,6 +22,8 @@ services:
     command:
       - "--config.file"
       - "/etc/alertmanager/config.yaml"
+      - "--log.level"
+      - "debug"
     secrets:
       - pagerduty_integration_key
 
