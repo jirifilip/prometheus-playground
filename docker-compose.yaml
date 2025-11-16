@@ -1,3 +1,16 @@
 services:
+
   prometheus:
     image: prom/prometheus:v3.7.3
+    volumes:
+      - "./prometheus/config.yaml:/etc/prometheus/config.yaml"
+      - "prometheus-data:/prometheus"
+    command:
+      - "--config.file"
+      - "/etc/prometheus/config.yaml"
+    ports:
+      - 9090:9090
+
+
+volumes:
+  prometheus-data:
