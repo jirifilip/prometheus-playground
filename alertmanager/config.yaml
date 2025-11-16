@@ -6,3 +6,5 @@ receivers:
     pagerduty_configs:
       - routing_key_file: "/run/secrets/pagerduty_integration_key"
         send_resolved: true
+        url: "https://events.eu.pagerduty.com/v2/enqueue"
+
