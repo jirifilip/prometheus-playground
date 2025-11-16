@@ -15,6 +15,14 @@ services:
     image: prom/alertmanager:v0.29.0
     ports:
       - "9093:9093"
+    volumes:
+      - "./alertmanager:/etc/alertmanager"
+      - "/run/secrets:/run/secrets"
+    command:
+      - "--config.file"
+      - "/etc/alertmanager/config.yaml"
+    secrets:
+      - pagerduty_integration_key
 
   node-exporter:
     image: prom/node-exporter:v1.10.2
@@ -30,3 +38,8 @@ services:
 
 volumes:
   prometheus-data:
+
+
+secrets:
+  pagerduty_integration_key:
+    environment: PAGERDUTY_INTEGRATION_KEY
