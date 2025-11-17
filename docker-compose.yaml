@@ -38,6 +38,11 @@ services:
     ports:
       - "9100:9100"
 
+  web-app:
+    build: ./webapp
+    ports:
+      - "8000:8000"
+
 
 volumes:
   prometheus-data:
