@@ -33,4 +33,10 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets:
-          - "web-app:8000"
+        - "web-app:8000"
+
+  - job_name: "grafana"
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        - "grafana:3000"

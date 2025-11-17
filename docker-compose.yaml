@@ -27,6 +27,14 @@ services:
     secrets:
       - pagerduty_integration_key
 
+  grafana:
+    image: grafana/grafana:12.4.0-19363970803-ubuntu
+    volumes:
+      - "grafana-data:/var/lib/grafana"
+      - "./grafana:/etc/grafana"
+    ports:
+      - "3000:3000"
+
   node-exporter:
     image: prom/node-exporter:v1.10.2
     command:
@@ -47,6 +55,7 @@ services:
 volumes:
   prometheus-data:
   alertmanager-data:
+  grafana-data:
 
 
 secrets:
