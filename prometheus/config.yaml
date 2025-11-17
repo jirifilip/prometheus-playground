@@ -28,3 +28,9 @@ scrape_configs:
     static_configs:
       - targets:
         - "node-exporter:9100"
+
+  - job_name: "web-app"
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+          - "web-app:8000"
