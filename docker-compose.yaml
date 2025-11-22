@@ -18,7 +18,6 @@ services:
     volumes:
       - "./alertmanager:/etc/alertmanager"
       - "alertmanager-data:/alertmanager"
-      - "/run/secrets:/run/secrets"
     command:
       - "--config.file"
       - "/etc/alertmanager/config.yaml"
